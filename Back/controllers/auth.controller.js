@@ -12,7 +12,7 @@ const {
 } = require("../email/email");
 
 const { v4: uuidv4 } = require("uuid");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 
 const SECRET_KEY = process.env.SECRET_KEY;
