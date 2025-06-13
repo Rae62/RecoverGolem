@@ -18,6 +18,7 @@ app.use(
       const allowedOrigins = [
         "http://localhost:5173", // dev vite
         "http://localhost:4173", // vite preview
+        "http://localhost:3000", // backend's own address
         process.env.CLIENT_URL, // optionnel
         "https://golembro-s.onrender.com", // prod
       ];
