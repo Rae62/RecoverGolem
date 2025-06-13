@@ -23,7 +23,13 @@ app.use(
         process.env.CLIENT_URL, // optionnel
         "https://golembro-s.onrender.com", // prod
       ];
-      if (!origin || allowedOrigins.includes(origin)) {
+      
+      // Normalize origins by removing trailing slashes
+      const normalizeOrigin = (url) => url ? url.replace(/\/$/, '') : url;
+      const normalizedOrigin = normalizeOrigin(origin);
+      const normalizedAllowedOrigins = allowedOrigins.map(normalizeOrigin);
+      
+      if (!origin || normalizedAllowedOrigins.includes(normalizedOrigin)) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS: " + origin));
